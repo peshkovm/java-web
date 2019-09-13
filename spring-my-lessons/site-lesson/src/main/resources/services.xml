@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="daos.xml"/>
+
+    <!-- services -->
+
+    <alias name="accountDao" alias="accountDao2"/>
+    <alias name="itemDao" alias="itemDao2"/>
+
+    <bean id="petStore" class="org.springframework.samples.jpetstore.services.PetStoreServiceImpl">
+        <property name="accountDao" ref="accountDao2"/>
+        <property name="itemDao" ref="itemDao2"/>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+
+    <bean id="clientService"
+          class="examples.ClientService"
+          factory-method="createInstance"/>
+
+    <bean id="serviceLocator"
+          class="examples.DefaultServiceLocator"/>
+
+    <bean id="clientService2"
+          factory-bean="serviceLocator"
+          factory-method="createClientServiceInstance"/>
+
+    <bean id="accountService"
+          factory-bean="serviceLocator"
+          factory-method="createAccountServiceInstance"/>
+
+    <bean id="exampleBean"
+          class="examples.ExampleBean" scope="prototype">
+        <constructor-arg name="years" value="55555"/>
+        <constructor-arg name="ultimateAnswer" value="42"/>
+    </bean>
+
+    <bean id="exampleBean2"
+          class="examples.ExampleBean"
+          factory-method="createExampleBean">
+        <constructor-arg name="years" value="55555"/>
+        <constructor-arg name="ultimateAnswer" value="ultimateAnswer"/>
+    </bean>
+    <bean id="exampleBean3"
+          class="examples.ExampleBean">
+        <property name="years" value="55555"/>
+        <property name="ultimateAnswer">
+            <bean class="java.lang.String">
+                <constructor-arg value="ultimateAnswer"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- more bean definitions for services go here -->
+
+</beans>

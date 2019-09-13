@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-udemy-lessons</artifactId>
+        <groupId>java.web</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-security</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>spring-security-demo-01-base-app</module>
+        <module>spring-security-demo-02-basic-security</module>
+        <module>spring-security-demo-03-custom-login-form</module>
+        <module>spring-security-demo-04-bootstrap-login-form</module>
+        <module>spring-security-demo-05-logout</module>
+        <module>spring-security-demo-06-csrf</module>
+        <module>spring-security-demo-07-user-roles</module>
+        <module>spring-security-demo-08-jdbc-plaintext</module>
+        <module>spring-security-demo-09-jdbc-decrypt</module>
+    </modules>
+
+
+</project>

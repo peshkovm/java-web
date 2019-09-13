@@ -1,0 +1,38 @@
+DROP SCHEMA if exists spring_security_demo_bcrypt;
+CREATE SCHEMA spring_security_demo_bcrypt;
+set schema spring_security_demo_bcrypt;
+
+set referential_integrity false;
+
+drop table if exists users;
+
+create table users
+(
+    username varchar(50) primary key not null,
+    password char(68)                not null,
+    enabled  tinyint(1)              not null
+);
+
+insert into users (username, password, enabled)
+values ('john', '{bcrypt}$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K', 1),
+       ('mary', '{bcrypt}$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K', 1),
+       ('susan', '{bcrypt}$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K', 1);
+
+drop table if exists authorities;
+
+create table authorities
+(
+    username  varchar(50) not null,
+    authority varchar(50) default null,
+    unique (username, authority),
+    foreign key (username) references users (username)
+);
+
+insert into authorities(username, authority)
+values ('john', 'ROLE_EMPLOYEE'),
+       ('mary', 'ROLE_EMPLOYEE'),
+       ('mary', 'ROLE_MANAGER'),
+       ('susan', 'ROLE_EMPLOYEE'),
+       ('susan', 'ROLE_ADMIN');
+
+set referential_integrity true;

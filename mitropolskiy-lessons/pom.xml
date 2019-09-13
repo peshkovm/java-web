@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>java-web</artifactId>
+        <groupId>java.web</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mitropolskiy-lessons</artifactId>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>database-lesson</module>
+        <module>reflection-lesson</module>
+        <module>servlet-lesson</module>
+        <module>spring-lesson</module>
+        <module>undertow-lesson</module>
+    </modules>
+
+</project>

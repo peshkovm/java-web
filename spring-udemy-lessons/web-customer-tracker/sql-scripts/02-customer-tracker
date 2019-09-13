@@ -1,0 +1,22 @@
+/*set referential_integrity false;*/
+
+set schema WEB_CUSTOMER_TRACKER;
+
+drop table if exists customer;
+
+create table customer
+(
+    id                   int primary key auto_increment not null,
+    first_name           varchar(45) default null,
+    last_name            varchar(45) default null,
+    email                varchar(45) default null
+);
+
+insert into customer (id, first_name, last_name, email)
+values (1, 'David', 'Adams', 'david@luv2code.com'),
+       (2, 'John', 'Doe', 'john@luv2code.com'),
+       (3, 'Ajay', 'Rao', 'ajay@luv2code.com'),
+       (4, 'Mary', 'Public', 'mary@luv2code.com'),
+       (5, 'Maxwell', 'Dixon', 'max@luv2code.com');
+
+/*set referential_integrity true;*/
